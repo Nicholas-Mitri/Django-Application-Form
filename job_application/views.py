@@ -8,6 +8,21 @@ from django.core.mail import EmailMessage
 
 
 def index(request):
+    """
+    View function for handling job application form submissions.
+
+    Renders the job application form page and processes form submissions.
+    If the form is submitted via POST and is valid, it:
+    1. Saves the application data to the database
+    2. Sends a confirmation email to the admin
+    3. Displays a success message to the user
+
+    Args:
+        request: HttpRequest object
+
+    Returns:
+        HttpResponse object with the rendered index.html template
+    """
     if request.method == "POST":
         form = ApplicationForm(request.POST)
         if form.is_valid():
@@ -36,3 +51,7 @@ def index(request):
 
             messages.success(request, "Form submitted successfully!")
     return render(request, "index.html")
+
+
+def about(request):
+    return render(request, "about.html")
