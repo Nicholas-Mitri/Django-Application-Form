@@ -54,4 +54,15 @@ def index(request):
 
 
 def about(request):
+    """
+    View function for rendering the about page.
+
+    Displays information about the company or organization.
+
+    Args:
+        request: HttpRequest object
+
+    Returns:
+        HttpResponse object with the rendered about.html template
+    """
     return render(request, "about.html")
